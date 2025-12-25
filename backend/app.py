@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from recommender import AIToolRecommender
+from .recommender import AIToolRecommender
 import os
 import pandas as pd
 
