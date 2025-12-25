@@ -1,20 +1,71 @@
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# Python
 venv/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.py[cod]
+*$py.class
 .Python
 *.so
 *.egg
 *.egg-info/
 dist/
 build/
-.git/
-.gitignore
+.pytest_cache/
+.coverage
+htmlcov/
+env/
+ENV/
+
+# IDEs
 .vscode/
 .idea/
-*.md
-.env
+*.swp
+*.swo
+*~
 .DS_Store
+
+# Node
 node_modules/
 npm-debug.log
+
+# Documentation
+*.md
+README.md
+docs/
+
+# Docker
+docker-compose.yml
+.dockerignore
+
+# Scripts
+start.sh
+start.bat
+start-render.sh
+build.sh
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Render & Deployment
+render.yaml
+Procfile
+
+# Frontend (not needed for backend)
+frontend/
+nginx.conf
+
+# Tests
+tests/
+test_*.py
+*_test.py

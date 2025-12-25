@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Copier les requirements et installer les dépendances
 COPY requirements.txt .
-RUN pip install --user --no-cache-dir -r requirements.txt gunicorn
+RUN pip install --user --no-cache-dir -r requirements.txt
 
 # Stage final
 FROM python:3.11-slim
@@ -34,15 +34,15 @@ ENV PATH=/home/appuser/.local/bin:$PATH
 ENV PYTHONUNBUFFERED=1
 ENV FLASK_ENV=production
 
-# Exposer le port
-EXPOSE 5000
+# Exposer le port (Render utilisera la variable $PORT)
+EXPOSE 10000
 
 # Passer à l'utilisateur non-root
 USER appuser
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:5000/')" || exit 1
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:${PORT:-10000}/')" || exit 1
 
-# Commande de démarrage
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--config", "backend/gunicorn_config.py", "backend.app:app"]
+# Commande de démarrage avec variable PORT de Render
+CMD gunicorn --bind 0.0.0.0:${PORT:-10000} --config backend/gunicorn_config.py backend.app:app

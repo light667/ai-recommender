@@ -13,21 +13,24 @@ recommender = None
 def init_recommender():
     """Initialise le système de recommandation"""
     global recommender
-    data_path = '../data/Generative AI Tools - Platforms 2025.csv'
-    model_path = '../models/recommender_model.pkl'
+    # Chemins absolus pour Docker
+    data_path = 'data/Generative AI Tools - Platforms 2025.csv'
+    model_path = 'models/recommender_model.pkl'
     
     recommender = AIToolRecommender(data_path)
     
     # Charger le modèle s'il existe, sinon l'entraîner
     if os.path.exists(model_path):
         print("📦 Chargement du modèle existant...")
-        recommender.load_model('../models')
+        recommender.load_model('models')
     else:
         print("🔧 Entraînement du nouveau modèle...")
         recommender.load_data()
         recommender.preprocess_data()
         recommender.train_model()
-        recommender.save_model('../models')
+        # Créer le répertoire models s'il n'existe pas
+        os.makedirs('models', exist_ok=True)
+        recommender.save_model('models')
     
     print("✅ API prête !")
 
@@ -255,4 +258,8 @@ def get_statistics():
 
 if __name__ == '__main__':
     init_recommender()
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.getenv('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
+else:
+    # Initialiser le recommender lors de l'import par Gunicorn
+    init_recommender()
