@@ -20,8 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function initializeApp() {
     try {
+        // Détecter le cold start (backend en veille)
+        showLoadingMessage();
+        const startTime = Date.now();
+        
         // Charger les statistiques
         await loadStatistics();
+        
+        const loadTime = Date.now() - startTime;
+        if (loadTime > 5000) {
+            // Cold start détecté (plus de 5 secondes)
+            console.log('Cold start détecté:', loadTime + 'ms');
+        }
         
         // Charger les catégories et modalités
         await loadCategories();
@@ -36,8 +46,11 @@ async function initializeApp() {
         // Remplir le select des outils pour les recommandations
         populateToolSelect();
         
+        hideLoadingMessage();
+        
     } catch (error) {
         console.error('Erreur d\'initialisation:', error);
+        hideLoadingMessage();
         showError('Erreur de connexion à l\'API. Assurez-vous que le serveur backend est démarré.');
     }
 }
@@ -443,6 +456,39 @@ function filterByCategory(category) {
 // Affichage des erreurs
 function showError(message) {
     alert(message);
+}
+
+// Message de chargement pour cold start
+function showLoadingMessage() {
+    const existingMsg = document.getElementById('coldStartMessage');
+    if (existingMsg) return;
+    
+    const message = document.createElement('div');
+    message.id = 'coldStartMessage';
+    message.className = 'cold-start-message';
+    message.innerHTML = `
+        <div class="loading-spinner"></div>
+        <h3>Chargement en cours...</h3>
+        <p>Le serveur se réveille (première visite), merci de patienter ~30 secondes ⏱️</p>
+        <div class="loading-bar"><div class="loading-progress"></div></div>
+    `;
+    document.body.appendChild(message);
+    
+    // Masquer après 3 secondes si chargement rapide
+    setTimeout(() => {
+        const msg = document.getElementById('coldStartMessage');
+        if (msg && !msg.classList.contains('loading')) {
+            msg.remove();
+        }
+    }, 3000);
+}
+
+function hideLoadingMessage() {
+    const message = document.getElementById('coldStartMessage');
+    if (message) {
+        message.style.opacity = '0';
+        setTimeout(() => message.remove(), 300);
+    }
 }
 
 // ========== NOUVELLES FONCTIONNALITÉS ==========
