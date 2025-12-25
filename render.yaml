@@ -6,13 +6,15 @@ services:
     region: frankfurt
     plan: free
     branch: main
-    buildCommand: "pip install -r requirements.txt && cd backend && python recommender.py"
-    startCommand: "gunicorn --config backend/gunicorn_config.py backend.app:app"
+    buildCommand: "pip install -r requirements.txt && cd backend && python recommender.py && cd .."
+    startCommand: "gunicorn --bind 0.0.0.0:$PORT --config backend/gunicorn_config.py backend.app:app"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
       - key: FLASK_ENV
         value: production
+      - key: WORKERS
+        value: 2
     healthCheckPath: /
 
   # Frontend Static Site

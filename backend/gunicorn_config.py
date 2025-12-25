@@ -1,16 +1,20 @@
 """Configuration Gunicorn pour production"""
 
 import multiprocessing
+import os
 
-# Adresse et port
-bind = "0.0.0.0:5000"
+# Adresse et port (Render utilise la variable PORT)
+port = os.getenv("PORT", "5000")
+bind = f"0.0.0.0:{port}"
 
-# Workers
-workers = multiprocessing.cpu_count() * 2 + 1
+# Workers (optimisé pour plan gratuit Render)
+workers = 2
 worker_class = "sync"
 worker_connections = 1000
-timeout = 120
+timeout = 300
 keepalive = 5
+max_requests = 1000
+max_requests_jitter = 50
 
 # Logging
 accesslog = "-"
