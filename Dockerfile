@@ -18,29 +18,31 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Copier les dépendances depuis le builder
-COPY --from=builder /root/.local /root/.local
+# Créer l'utilisateur d'abord
+RUN useradd -m -u 1000 appuser
+
+# Copier les dépendances depuis le builder et donner les bonnes permissions
+COPY --from=builder --chown=appuser:appuser /root/.local /home/appuser/.local
 
 # Copier le code de l'application
-COPY backend/ ./backend/
-COPY data/ ./data/
-COPY models/ ./models/
+COPY --chown=appuser:appuser backend/ ./backend/
+COPY --chown=appuser:appuser data/ ./data/
+COPY --chown=appuser:appuser models/ ./models/
 
 # Variables d'environnement
-ENV PATH=/root/.local/bin:$PATH
+ENV PATH=/home/appuser/.local/bin:$PATH
 ENV PYTHONUNBUFFERED=1
 ENV FLASK_ENV=production
 
 # Exposer le port
 EXPOSE 5000
 
-# Créer un utilisateur non-root
-RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+# Passer à l'utilisateur non-root
 USER appuser
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD python -c "import requests; requests.get('http://localhost:5000/')"
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:5000/')" || exit 1
 
 # Commande de démarrage
-CMD ["gunicorn", "--config", "backend/gunicorn_config.py", "backend.app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--config", "backend/gunicorn_config.py", "backend.app:app"]
