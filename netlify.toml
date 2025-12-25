@@ -1,5 +1,5 @@
 [build]
-  # Pas de build nécessaire pour un site statique simple
+  # Le dossier à publier est "frontend" à la racine du repo
   publish = "frontend"
   command = "echo 'No build command'"
 
