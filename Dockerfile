@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copier les requirements et installer les dépendances
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --user --no-cache-dir -r requirements.txt
 
 # Stage final
