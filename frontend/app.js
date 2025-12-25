@@ -9,6 +9,8 @@ let allTools = [];
 let allCategories = [];
 let allModalities = [];
 let currentTools = [];
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+let compareList = JSON.parse(localStorage.getItem('compareList')) || [];
 
 // Initialisation de l'application
 document.addEventListener('DOMContentLoaded', () => {
@@ -43,7 +45,11 @@ async function initializeApp() {
 function setupEventListeners() {
     // Tabs
     document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+        btn.addEventListener('click', () => {
+            switchTab(btn.dataset.tab);
+            if (btn.dataset.tab === 'favorites') displayFavorites();
+            if (btn.dataset.tab === 'compare') updateCompareView();
+        });
     });
     
     // Recherche
@@ -58,6 +64,15 @@ function setupEventListeners() {
     document.getElementById('openSourceFilter').addEventListener('change', applyFilters);
     document.getElementById('apiFilter').addEventListener('change', applyFilters);
     document.getElementById('clearFilters').addEventListener('click', clearFilters);
+    
+    // Tri
+    document.getElementById('sortFilter').addEventListener('change', (e) => sortTools(e.target.value));
+    
+    // Outil aléatoire
+    document.getElementById('randomTool').addEventListener('click', showRandomTool);
+    
+    // Comparateur
+    document.getElementById('clearComparison').addEventListener('click', clearComparison);
     
     // Recommandations
     document.getElementById('getRecommendations').addEventListener('click', getRecommendations);
@@ -197,8 +212,25 @@ function createToolCard(tool, showScore = false) {
         badges.push(`<span class="badge score">${scorePercent}% match</span>`);
     }
     
+    const isFavorite = favorites.includes(tool.tool_name);
+    const isInCompare = compareList.includes(tool.tool_name);
+    
     return `
         <div class="tool-card">
+            <div class="card-actions">
+                <button class="favorite-btn ${isFavorite ? 'active' : ''}" 
+                        data-tool="${tool.tool_name}"
+                        onclick="toggleFavorite('${tool.tool_name}', event)"
+                        title="Ajouter aux favoris">
+                    ⭐
+                </button>
+                <button class="compare-btn ${isInCompare ? 'active' : ''}" 
+                        data-tool="${tool.tool_name}"
+                        onclick="toggleCompare('${tool.tool_name}', event)"
+                        title="Ajouter à la comparaison">
+                    📊
+                </button>
+            </div>
             <h3>${tool.tool_name}</h3>
             <div class="company">par ${tool.company}</div>
             <div class="category">${tool.category}</div>
@@ -411,4 +443,192 @@ function filterByCategory(category) {
 // Affichage des erreurs
 function showError(message) {
     alert(message);
+}
+
+// ========== NOUVELLES FONCTIONNALITÉS ==========
+
+// 1. OUTIL ALÉATOIRE
+function showRandomTool() {
+    if (currentTools.length === 0) return;
+    const randomIndex = Math.floor(Math.random() * currentTools.length);
+    const randomTool = currentTools[randomIndex];
+    showToolDetails(randomTool);
+}
+
+// 3. SYSTÈME DE FAVORIS
+function toggleFavorite(toolName, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+    
+    const index = favorites.indexOf(toolName);
+    if (index > -1) {
+        favorites.splice(index, 1);
+    } else {
+        favorites.push(toolName);
+    }
+    
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    
+    // Rafraîchir l'affichage si on est sur l'onglet favoris
+    if (document.getElementById('favoritesTab').classList.contains('active')) {
+        displayFavorites();
+    }
+    
+    // Mettre à jour les icônes d'étoiles
+    updateFavoriteIcons();
+}
+
+function displayFavorites() {
+    const grid = document.getElementById('favoritesGrid');
+    const favoriteTools = allTools.filter(tool => favorites.includes(tool.tool_name));
+    
+    if (favoriteTools.length === 0) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <h3>Aucun favori</h3>
+                <p>Cliquez sur l'étoile d'un outil pour l'ajouter à vos favoris</p>
+            </div>
+        `;
+        return;
+    }
+    
+    grid.innerHTML = favoriteTools.map(tool => createToolCard(tool)).join('');
+    
+    grid.querySelectorAll('.tool-card').forEach((card, index) => {
+        card.addEventListener('click', () => showToolDetails(favoriteTools[index]));
+    });
+}
+
+function updateFavoriteIcons() {
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+        const toolName = btn.dataset.tool;
+        btn.classList.toggle('active', favorites.includes(toolName));
+    });
+}
+
+// 4. COMPARATEUR D'OUTILS
+function toggleCompare(toolName, event) {
+    if (event) {
+        event.stopPropagation();
+    }
+    
+    const index = compareList.indexOf(toolName);
+    if (index > -1) {
+        compareList.splice(index, 1);
+    } else {
+        if (compareList.length >= 3) {
+            alert('Vous pouvez comparer maximum 3 outils');
+            return;
+        }
+        compareList.push(toolName);
+    }
+    
+    localStorage.setItem('compareList', JSON.stringify(compareList));
+    updateCompareView();
+    updateCompareIcons();
+}
+
+function updateCompareView() {
+    const selectedTools = document.getElementById('selectedTools');
+    const compareTable = document.getElementById('comparisonTable');
+    
+    if (compareList.length === 0) {
+        selectedTools.innerHTML = '<p>Aucun outil sélectionné</p>';
+        compareTable.innerHTML = '';
+        return;
+    }
+    
+    const tools = allTools.filter(t => compareList.includes(t.tool_name));
+    
+    selectedTools.innerHTML = tools.map(tool => `
+        <div class="compare-chip">
+            ${tool.tool_name}
+            <button onclick="toggleCompare('${tool.tool_name}')" class="remove-btn">×</button>
+        </div>
+    `).join('');
+    
+    if (tools.length >= 2) {
+        compareTable.innerHTML = generateComparisonTable(tools);
+    }
+}
+
+function generateComparisonTable(tools) {
+    return `
+        <table class="comparison">
+            <thead>
+                <tr>
+                    <th>Critère</th>
+                    ${tools.map(t => `<th>${t.tool_name}</th>`).join('')}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Entreprise</strong></td>
+                    ${tools.map(t => `<td>${t.company}</td>`).join('')}
+                </tr>
+                <tr>
+                    <td><strong>Catégorie</strong></td>
+                    ${tools.map(t => `<td>${t.category}</td>`).join('')}
+                </tr>
+                <tr>
+                    <td><strong>Modalité</strong></td>
+                    ${tools.map(t => `<td>${t.modality}</td>`).join('')}
+                </tr>
+                <tr>
+                    <td><strong>Open Source</strong></td>
+                    ${tools.map(t => `<td>${t.open_source ? '✅ Oui' : '❌ Non'}</td>`).join('')}
+                </tr>
+                <tr>
+                    <td><strong>API Disponible</strong></td>
+                    ${tools.map(t => `<td>${t.api_available ? '✅ Oui (' + t.api_status + ')' : '❌ Non'}</td>`).join('')}
+                </tr>
+                <tr>
+                    <td><strong>Année de sortie</strong></td>
+                    ${tools.map(t => `<td>${t.release_year || 'N/A'}</td>`).join('')}
+                </tr>
+                <tr>
+                    <td><strong>Site web</strong></td>
+                    ${tools.map(t => `<td><a href="${t.website}" target="_blank" class="btn btn-sm">Visiter</a></td>`).join('')}
+                </tr>
+            </tbody>
+        </table>
+    `;
+}
+
+function clearComparison() {
+    compareList = [];
+    localStorage.setItem('compareList', JSON.stringify(compareList));
+    updateCompareView();
+    updateCompareIcons();
+}
+
+function updateCompareIcons() {
+    document.querySelectorAll('.compare-btn').forEach(btn => {
+        const toolName = btn.dataset.tool;
+        btn.classList.toggle('active', compareList.includes(toolName));
+    });
+}
+
+// 5. TRI ET FILTRES AVANCÉS
+function sortTools(criteria) {
+    let sorted = [...currentTools];
+    
+    switch(criteria) {
+        case 'name-asc':
+            sorted.sort((a, b) => a.tool_name.localeCompare(b.tool_name));
+            break;
+        case 'name-desc':
+            sorted.sort((a, b) => b.tool_name.localeCompare(a.tool_name));
+            break;
+        case 'year-desc':
+            sorted.sort((a, b) => (b.release_year || 0) - (a.release_year || 0));
+            break;
+        case 'year-asc':
+            sorted.sort((a, b) => (a.release_year || 9999) - (b.release_year || 9999));
+            break;
+    }
+    
+    currentTools = sorted;
+    displayTools(currentTools);
 }

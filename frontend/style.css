@@ -457,6 +457,37 @@ footer {
     margin-top: 3rem;
 }
 
+/* Section publicitaire discrète */
+.ad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.ad-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+.ad-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+.footer-text {
+    color: #94a3b8;
+    margin: 0;
+}
+
 footer p {
     color: #94a3b8;
 }
@@ -492,6 +523,12 @@ footer p {
     .tabs {
         flex-direction: column;
     }
+    
+    /* Publicité responsive sur mobile */
+    .ad-content iframe {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 /* Empty State */
@@ -515,4 +552,189 @@ footer p {
 
 .tool-card, .category-card {
     animation: fadeIn 0.5s ease;
+}
+
+/* ========== NOUVELLES FONCTIONNALITÉS ==========  */
+
+/* 1. SECTION HEADER AVEC ACTIONS */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.section-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* 3. BOUTONS FAVORIS ET COMPARATEUR SUR LES CARTES */
+.card-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+
+.tool-card {
+    position: relative;
+}
+
+.favorite-btn,
+.compare-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.favorite-btn:hover,
+.compare-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.favorite-btn.active {
+    background: #fbbf24;
+    transform: scale(1.1);
+}
+
+.compare-btn.active {
+    background: #60a5fa;
+    transform: scale(1.1);
+}
+
+/* 3. COMPARATEUR */
+.compare-selection {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.selected-tools {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    min-height: 50px;
+}
+
+.compare-chip {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.compare-chip .remove-btn {
+    background: rgba(255,255,255,0.3);
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    color: white;
+    transition: background 0.3s;
+}
+
+.compare-chip .remove-btn:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+.comparison-table {
+    overflow-x: auto;
+}
+
+.comparison {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.comparison th,
+.comparison td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comparison th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.comparison tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison tr:hover {
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.comparison .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* 5. RESPONSIVE */
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .section-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .section-actions select,
+    .section-actions button {
+        width: 100%;
+    }
+    
+    .compare-chip {
+        font-size: 0.875rem;
+    }
+    
+    .comparison {
+        font-size: 0.875rem;
+    }
+    
+    .comparison th,
+    .comparison td {
+        padding: 0.5rem;
+    }
+    
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
 }

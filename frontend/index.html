@@ -74,11 +74,24 @@
             <button class="tab-btn active" data-tab="explore">Explorer</button>
             <button class="tab-btn" data-tab="recommend">Recommandations</button>
             <button class="tab-btn" data-tab="categories">Par Catégorie</button>
+            <button class="tab-btn" data-tab="favorites">⭐ Favoris</button>
+            <button class="tab-btn" data-tab="compare">📊 Comparer</button>
         </section>
 
         <!-- Tab Content: Explorer -->
         <section id="exploreTab" class="tab-content active">
-            <h2>Tous les outils d'IA</h2>
+            <div class="section-header">
+                <h2>Tous les outils d'IA</h2>
+                <div class="section-actions">
+                    <select id="sortFilter" class="filter-select">
+                        <option value="name-asc">A → Z</option>
+                        <option value="name-desc">Z → A</option>
+                        <option value="year-desc">Plus récent</option>
+                        <option value="year-asc">Plus ancien</option>
+                    </select>
+                    <button id="randomTool" class="btn btn-secondary">🎲 Outil aléatoire</button>
+                </div>
+            </div>
             <div id="toolsGrid" class="tools-grid">
                 <div class="loading">Chargement...</div>
             </div>
@@ -104,12 +117,52 @@
                 <div class="loading">Chargement...</div>
             </div>
         </section>
+
+        <!-- Tab Content: Favoris -->
+        <section id="favoritesTab" class="tab-content">
+            <h2>⭐ Mes Favoris</h2>
+            <p class="subtitle">Outils que vous avez marqués comme favoris</p>
+            <div id="favoritesGrid" class="tools-grid">
+                <div class="empty-state">
+                    <h3>Aucun favori</h3>
+                    <p>Cliquez sur l'étoile d'un outil pour l'ajouter à vos favoris</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Content: Comparateur -->
+        <section id="compareTab" class="tab-content">
+            <h2>📊 Comparer des outils</h2>
+            <p class="subtitle">Sélectionnez 2 ou 3 outils pour les comparer</p>
+            <div id="compareSelection" class="compare-selection">
+                <div class="selected-tools" id="selectedTools"></div>
+                <button id="clearComparison" class="btn btn-secondary">Effacer la sélection</button>
+            </div>
+            <div id="comparisonTable" class="comparison-table"></div>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 AI Tools Recommender | Propulsé par Machine Learning</p>
+            <!-- Publicité discrète -->
+            <div class="ad-container">
+                <span class="ad-label">Publicité</span>
+                <div class="ad-content">
+                    <script>
+                      atOptions = {
+                        'key' : 'a1e07768e7ef9c2017bc8128db327931',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                      };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/a1e07768e7ef9c2017bc8128db327931/invoke.js"></script>
+                </div>
+            </div>
+            
+            <p class="footer-text">&copy; 2025 AI Tools Recommender | Propulsé par Machine Learning</p>
         </div>
     </footer>
 
