@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Recommender 🤖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>🤖 AI Tools Recommender</h1>
+                <p class="subtitle">Découvrez les meilleurs outils d'IA générative pour vos projets</p>
+            </div>
+            <div class="stats-bar" id="statsBar">
+                <div class="stat-item">
+                    <span class="stat-value" id="totalTools">-</span>
+                    <span class="stat-label">Outils</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="totalCompanies">-</span>
+                    <span class="stat-label">Entreprises</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="openSourceCount">-</span>
+                    <span class="stat-label">Open Source</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Search & Filter Section -->
+        <section class="search-section">
+            <div class="search-bar">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="🔍 Rechercher un outil, une entreprise, une catégorie..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="btn btn-primary">Rechercher</button>
+            </div>
+            
+            <div class="filters">
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">Toutes les catégories</option>
+                </select>
+                
+                <select id="modalityFilter" class="filter-select">
+                    <option value="">Toutes les modalités</option>
+                </select>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="openSourceFilter">
+                    <span>Open Source uniquement</span>
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="apiFilter">
+                    <span>API disponible</span>
+                </label>
+                
+                <button id="clearFilters" class="btn btn-secondary">Réinitialiser</button>
+            </div>
+        </section>
+
+        <!-- Tabs -->
+        <section class="tabs">
+            <button class="tab-btn active" data-tab="explore">Explorer</button>
+            <button class="tab-btn" data-tab="recommend">Recommandations</button>
+            <button class="tab-btn" data-tab="categories">Par Catégorie</button>
+        </section>
+
+        <!-- Tab Content: Explorer -->
+        <section id="exploreTab" class="tab-content active">
+            <h2>Tous les outils d'IA</h2>
+            <div id="toolsGrid" class="tools-grid">
+                <div class="loading">Chargement...</div>
+            </div>
+        </section>
+
+        <!-- Tab Content: Recommandations -->
+        <section id="recommendTab" class="tab-content">
+            <h2>Obtenir des recommandations</h2>
+            <div class="recommend-form">
+                <p>Sélectionnez un outil pour obtenir des recommandations similaires :</p>
+                <select id="toolSelect" class="filter-select large">
+                    <option value="">Choisissez un outil...</option>
+                </select>
+                <button id="getRecommendations" class="btn btn-primary">Obtenir des recommandations</button>
+            </div>
+            <div id="recommendationsResult" class="tools-grid"></div>
+        </section>
+
+        <!-- Tab Content: Par Catégorie -->
+        <section id="categoriesTab" class="tab-content">
+            <h2>Explorer par catégorie</h2>
+            <div id="categoriesGrid" class="categories-grid">
+                <div class="loading">Chargement...</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Tools Recommender | Propulsé par Machine Learning</p>
+        </div>
+    </footer>
+
+    <!-- Modal pour les détails d'un outil -->
+    <div id="toolModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

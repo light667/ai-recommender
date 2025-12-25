@@ -1,0 +1,114 @@
+tool_name,company,category_canonical,modality_canonical,open_source,api_available,api_status,website,source_domain,release_year,years_since_release,mod_text,mod_image,mod_video,mod_audio,mod_code,mod_design,mod_infra,mod_productivity,mod_safety,mod_multimodal,modality_count
+ChatGPT,OpenAI,LLMs & Chat Assistants,multimodal,0,1,api,https://chatgpt.com,chatgpt.com,2022,3,0,0,0,0,0,0,0,0,0,1,0
+Claude,Anthropic,LLMs & Chat Assistants,multimodal,0,1,api,https://claude.ai,claude.ai,2023,2,0,0,0,0,0,0,0,0,0,1,0
+Gemini,Google,LLMs & Chat Assistants,multimodal,0,1,api,https://gemini.google.com,gemini.google.com,2023,2,0,0,0,0,0,0,0,0,0,1,0
+Midjourney,Midjourney,Image Gen & Editing,image,0,0,unavailable,https://www.midjourney.com,midjourney.com,2022,3,0,1,0,0,0,0,0,0,0,0,1
+Stable Diffusion,Stability AI,Image Gen & Editing,image,1,1,api,https://stability.ai/stable-image,stability.ai,2022,3,0,1,0,0,0,0,0,0,0,0,1
+DALL·E 3,OpenAI,Image Gen & Editing,image,0,1,api,https://openai.com/index/dall-e-3-system-card,openai.com,2023,2,0,1,0,0,0,0,0,0,0,0,1
+Runway Gen-3,Runway,Video Gen & Editing,video,0,1,api,https://runwayml.com,runwayml.com,2024,1,0,0,1,0,0,0,0,0,0,0,1
+Pika,Pika,Video Gen & Editing,video,0,1,api,https://pika.art,pika.art,2023,2,0,0,1,0,0,0,0,0,0,0,1
+Suno,Suno,Video Gen & Editing,audio,0,1,api,https://suno.com,suno.com,2023,2,0,0,0,1,0,0,0,0,0,0,1
+Udio,Udio,Video Gen & Editing,audio,0,1,api,https://www.udio.com,udio.com,2024,1,0,0,0,1,0,0,0,0,0,0,1
+ElevenLabs,ElevenLabs,Audio/Music/TTS,audio,0,1,api,https://elevenlabs.io,elevenlabs.io,2022,3,0,0,0,1,0,0,0,0,0,0,1
+GitHub Copilot,GitHub,LLMs & Chat Assistants,code,0,1,api,https://github.com/features/copilot,github.com,2022,3,0,0,0,0,1,0,0,0,0,0,1
+Cursor,Anysphere,Code Assistants,code,0,1,api,https://cursor.com,cursor.com,2023,2,0,0,0,0,1,0,0,0,0,0,1
+Sourcegraph Cody,Sourcegraph,LLMs & Chat Assistants,code,0,1,api,https://sourcegraph.com/cody,sourcegraph.com,2023,2,0,0,0,0,1,0,0,0,0,0,1
+Amazon Q Developer,Amazon Web Services,LLMs & Chat Assistants,code,0,1,api,https://aws.amazon.com/q/developer/,aws.amazon.com,2023,2,0,0,0,0,1,0,0,0,0,0,1
+JetBrains AI Assistant,JetBrains,LLMs & Chat Assistants,code,0,1,api,https://www.jetbrains.com/ai-assistant/,jetbrains.com,2023,2,0,0,0,0,1,0,0,0,0,0,1
+Perplexity,Perplexity AI,Other,multimodal,0,1,api,https://www.perplexity.ai,perplexity.ai,2022,3,0,0,0,0,0,0,0,0,0,1,0
+Meta AI,Meta,LLMs & Chat Assistants,multimodal,1,1,api,https://www.meta.ai,meta.ai,2024,1,0,0,0,0,0,0,0,0,0,1,0
+Mistral Le Chat,Mistral AI,LLMs & Chat Assistants,multimodal,1,1,api,https://chat.mistral.ai,chat.mistral.ai,2024,1,0,0,0,0,0,0,0,0,0,1,0
+Pinecone,Pinecone,Search & RAG,infra,0,1,api,https://www.pinecone.io,pinecone.io,2021,4,0,0,0,0,0,0,1,0,0,0,0
+Weaviate,Weaviate,Search & RAG,infra,1,1,api,https://weaviate.io,weaviate.io,2019,6,0,0,0,0,0,0,1,0,0,0,0
+Milvus,Zilliz,Search & RAG,infra,1,1,api,https://milvus.io,milvus.io,2019,6,0,0,0,0,0,0,1,0,0,0,0
+Qdrant,Qdrant,Search & RAG,infra,1,1,api,https://qdrant.tech,qdrant.tech,2021,4,0,0,0,0,0,0,1,0,0,0,0
+pgvector,Community,Search & RAG,infra,1,1,api,https://github.com/pgvector/pgvector,github.com,2023,2,0,0,0,0,0,0,1,0,0,0,0
+LangChain,LangChain,Other,code,1,1,api,https://www.langchain.com,langchain.com,2022,3,0,0,0,0,1,0,0,0,0,0,1
+LlamaIndex,LlamaIndex,Other,code,1,1,api,https://www.llamaindex.ai,llamaindex.ai,2022,3,0,0,0,0,1,0,0,0,0,0,1
+Haystack,deepset,Other,code,1,1,api,https://haystack.deepset.ai,haystack.deepset.ai,2024,1,0,0,0,0,1,0,0,0,0,0,1
+Whisper,OpenAI,Other,audio,1,1,api,https://openai.com/index/whisper/,openai.com,2022,3,0,0,0,1,0,0,0,0,0,0,1
+Deepgram,Deepgram,Audio/Music/TTS,audio,0,1,api,https://deepgram.com,deepgram.com,2023,2,0,0,0,1,0,0,0,0,0,0,1
+AssemblyAI,AssemblyAI,Other,audio,0,1,api,https://www.assemblyai.com,assemblyai.com,2017,8,0,0,0,1,0,0,0,0,0,0,1
+Google Speech-to-Text,Google Cloud,Other,audio,0,1,api,https://cloud.google.com/speech-to-text,cloud.google.com,2018,7,0,0,0,1,0,0,0,0,0,0,1
+NVIDIA NeMo Guardrails,NVIDIA,Safety & Guardrails,safety,1,1,api,https://developer.nvidia.com/nemo-guardrails,developer.nvidia.com,2023,2,0,0,0,0,0,0,0,0,1,0,0
+Lakera Guard,Lakera,Safety & Guardrails,safety,0,1,api,https://www.lakera.ai/lakera-guard,lakera.ai,2023,2,0,0,0,0,0,0,0,0,1,0,0
+Guardrails AI (framework),Guardrails AI,Safety & Guardrails,safety,1,1,api,https://www.guardrailsai.com/,guardrailsai.com,2023,2,0,0,0,0,0,0,0,0,1,0,0
+LMQL,ETH SRI,LLMs & Chat Assistants,code,1,1,api,https://lmql.ai/,lmql.ai,2023,2,0,0,0,0,1,0,0,0,0,0,1
+OpenRouter,OpenRouter,Other,infra,0,1,api,https://openrouter.ai,openrouter.ai,2023,2,0,0,0,0,0,0,1,0,0,0,0
+Replicate,Replicate,Infra & Inference,infra,0,1,api,https://replicate.com,replicate.com,2021,4,0,0,0,0,0,0,1,0,0,0,0
+Modal,Modal Labs,Infra & Inference,infra,0,1,api,https://modal.com,modal.com,2022,3,0,0,0,0,0,0,1,0,0,0,0
+Vercel v0,Vercel,Design & UI,productivity,0,1,api,https://v0.app,v0.app,2023,2,0,0,0,0,0,0,0,1,0,0,0
+Figma AI,Figma,Design & UI,design,0,1,api,https://www.figma.com/ai/,figma.com,2024,1,0,0,0,0,0,1,0,0,0,0,0
+Framer AI,Framer,Design & UI,design,0,1,api,https://www.framer.com/features/ai/,framer.com,2023,2,0,0,0,0,0,1,0,0,0,0,0
+Canva Magic Write,Canva,Other,productivity,0,1,api,https://www.canva.com/magic-write/,canva.com,2022,3,0,0,0,0,0,0,0,1,0,0,0
+Notion AI,Notion,Productivity & Copilots,productivity,0,1,api,https://www.notion.com/product/ai,notion.com,2023,2,0,0,0,0,0,0,0,1,0,0,0
+Cohere Command R,Cohere,LLMs & Chat Assistants,multimodal,0,1,api,https://cohere.com,cohere.com,2024,1,0,0,0,0,0,0,0,0,0,1,0
+xAI Grok,xAI,LLMs & Chat Assistants,multimodal,0,1,api,https://x.ai,x.ai,2023,2,0,0,0,0,0,0,0,0,0,1,0
+DeepSeek R1,DeepSeek,LLMs & Chat Assistants,multimodal,1,1,api,https://www.deepseek.com,deepseek.com,2025,0,0,0,0,0,0,0,0,0,0,1,0
+Mistral Large,Mistral AI,LLMs & Chat Assistants,multimodal,1,1,api,https://mistral.ai,mistral.ai,2023,2,0,0,0,0,0,0,0,0,0,1,0
+Llama 3.1,Meta,LLMs & Chat Assistants,multimodal,1,1,api,https://ai.meta.com/llama/,ai.meta.com,2023,2,0,0,0,0,0,0,0,0,0,1,0
+Qwen 2.5,Alibaba Cloud,LLMs & Chat Assistants,multimodal,1,1,api,https://qwenlm.ai/,qwenlm.ai,2025,0,0,0,0,0,0,0,0,0,0,1,0
+Gemma 2,Google,LLMs & Chat Assistants,multimodal,1,1,api,https://ai.google.dev/gemma,ai.google.dev,2024,1,0,0,0,0,0,0,0,0,0,1,0
+DBRX,Databricks,LLMs & Chat Assistants,multimodal,1,1,api,https://www.databricks.com/research/dbrx,databricks.com,2024,1,0,0,0,0,0,0,0,0,0,1,0
+Phi-3,Microsoft,LLMs & Chat Assistants,multimodal,1,1,api,https://www.microsoft.com/ai,microsoft.com,2024,1,0,0,0,0,0,0,0,0,0,1,0
+MPT-7B,MosaicML,LLMs & Chat Assistants,text,1,1,api,https://www.mosaicml.com,mosaicml.com,2023,2,1,0,0,0,0,0,0,0,0,0,1
+Mixtral 8x7B,Mistral AI,LLMs & Chat Assistants,text,1,1,api,https://mistral.ai,mistral.ai,2023,2,1,0,0,0,0,0,0,0,0,0,1
+OpenAI o3-mini,OpenAI,LLMs & Chat Assistants,multimodal,0,1,api,https://platform.openai.com,platform.openai.com,2025,0,0,0,0,0,0,0,0,0,0,1,0
+GPT-4o,OpenAI,LLMs & Chat Assistants,multimodal,0,1,api,https://platform.openai.com,platform.openai.com,2023,2,0,0,0,0,0,0,0,0,0,1,0
+Claude 3.7 Sonnet,Anthropic,LLMs & Chat Assistants,multimodal,0,1,api,https://www.anthropic.com,anthropic.com,2023,2,0,0,0,0,0,0,0,0,0,1,0
+Grok-2,xAI,LLMs & Chat Assistants,multimodal,0,1,api,https://x.ai,x.ai,2024,1,0,0,0,0,0,0,0,0,0,1,0
+Mistral Codestral,Mistral AI,LLMs & Chat Assistants,code,1,1,api,https://mistral.ai,mistral.ai,2023,2,0,0,0,0,1,0,0,0,0,0,1
+Code Llama,Meta,LLMs & Chat Assistants,code,1,1,api,https://ai.meta.com/llama/,ai.meta.com,2023,2,0,0,0,0,1,0,0,0,0,0,1
+OpenAI o4-mini,OpenAI,LLMs & Chat Assistants,multimodal,0,1,api,https://platform.openai.com,platform.openai.com,2025,0,0,0,0,0,0,0,0,0,0,1,0
+Llama Guard,Meta,Safety & Guardrails,safety,1,1,api,https://ai.meta.com,ai.meta.com,2023,2,0,0,0,0,0,0,0,0,1,0,0
+Vanna,Vanna AI,Other,productivity,0,1,api,https://www.vanna.ai,vanna.ai,2024,1,0,0,0,0,0,0,0,1,0,0,0
+Dataherald,Dataherald,Other,productivity,0,1,api,https://www.dataherald.com,dataherald.com,2023,2,0,0,0,0,0,0,0,1,0,0,0
+Transformers,Hugging Face,Other,code,1,1,api,https://huggingface.co/docs/transformers,huggingface.co,2018,7,0,0,0,0,1,0,0,0,0,0,1
+Diffusers,Hugging Face,Other,image,1,1,api,https://huggingface.co/docs/diffusers,huggingface.co,2022,3,0,1,0,0,0,0,0,0,0,0,1
+Gradio,Hugging Face,Other,productivity,1,1,api,https://www.gradio.app,gradio.app,2019,6,0,0,0,0,0,0,0,1,0,0,0
+Hugging Face Spaces,Hugging Face,Infra & Inference,infra,1,1,api,https://huggingface.co/spaces,huggingface.co,2021,4,0,0,0,0,0,0,1,0,0,0,0
+ComfyUI,Comfy Org,Image Gen & Editing,image,1,1,api,https://github.com/comfyanonymous/ComfyUI,github.com,2023,2,0,1,0,0,0,0,0,0,0,0,1
+Automatic1111,Community,Image Gen & Editing,image,1,0,unavailable,https://github.com/AUTOMATIC1111/stable-diffusion-webui,github.com,2022,3,0,1,0,0,0,0,0,0,0,0,1
+Krea AI,Krea,Image Gen & Editing,image,0,1,api,https://www.krea.ai,krea.ai,2022,3,0,1,0,0,0,0,0,0,0,0,1
+Leonardo AI,Leonardo.Ai,Image Gen & Editing,image,0,1,api,https://leonardo.ai,leonardo.ai,2022,3,0,1,0,0,0,0,0,0,0,0,1
+Ideogram,Ideogram,Image Gen & Editing,image,0,1,api,https://ideogram.ai,ideogram.ai,2023,2,0,1,0,0,0,0,0,0,0,0,1
+Black Forest Labs FLUX,Black Forest Labs,Image Gen & Editing,image,1,1,api,https://blackforestlabs.ai,blackforestlabs.ai,2024,1,0,1,0,0,0,0,0,0,0,0,1
+Playground AI,Playground,Image Gen & Editing,image,0,1,api,https://playground.com,playground.com,2022,3,0,1,0,0,0,0,0,0,0,0,1
+Luma Dream Machine,Luma AI,Video Gen & Editing,video,0,1,api,https://lumalabs.ai,lumalabs.ai,2024,1,0,0,1,0,0,0,0,0,0,0,1
+Kling AI,Kuaishou,Video Gen & Editing,video,0,1,api,https://klingai.com,klingai.com,2024,1,0,0,1,0,0,0,0,0,0,0,1
+HeyGen,HeyGen,Video Gen & Editing,video,0,1,api,https://www.heygen.com,heygen.com,2022,3,0,0,1,0,0,0,0,0,0,0,1
+Synthesia,Synthesia,Video Gen & Editing,video,0,1,api,https://www.synthesia.io,synthesia.io,2022,3,0,0,1,0,0,0,0,0,0,0,1
+CapCut AI,ByteDance,Video Gen & Editing,video,0,1,api,https://www.capcut.com/ai,capcut.com,2019,6,0,0,1,0,0,0,0,0,0,0,1
+Descript,Descript,Video Gen & Editing,audio,0,1,api,https://www.descript.com,descript.com,2019,6,0,0,0,1,0,0,0,0,0,0,1
+PlayHT,PlayHT,Audio/Music/TTS,audio,0,1,api,https://play.ht,play.ht,2017,8,0,0,0,1,0,0,0,0,0,0,1
+Coqui TTS,Coqui,Audio/Music/TTS,audio,1,1,api,https://coqui.ai,coqui.ai,2021,4,0,0,0,1,0,0,0,0,0,0,1
+Voicemod,Voicemod,Audio/Music/TTS,audio,0,1,api,https://www.voicemod.net,voicemod.net,2014,11,0,0,0,1,0,0,0,0,0,0,1
+OpenAI TTS,OpenAI,Other,audio,0,1,api,https://platform.openai.com,platform.openai.com,2023,2,0,0,0,1,0,0,0,0,0,0,1
+OpenAI Sora,OpenAI,Video Gen & Editing,video,0,0,unavailable,https://openai.com/sora,openai.com,2024,1,0,0,1,0,0,0,0,0,0,0,1
+Adobe Firefly,Adobe,Image Gen & Editing,image,0,1,api,https://www.adobe.com/products/firefly.html,adobe.com,2023,2,0,1,0,0,0,0,0,0,0,0,1
+Adobe Photoshop Generative Fill,Adobe,Image Gen & Editing,image,0,0,unavailable,https://www.adobe.com/products/photoshop.html,adobe.com,2023,2,0,1,0,0,0,0,0,0,0,0,1
+Illustrator Text to Vector,Adobe,Video Gen & Editing,image,0,0,unavailable,https://www.adobe.com/products/illustrator.html,adobe.com,2023,2,0,1,0,0,0,0,0,0,0,0,1
+Canva Magic Design,Canva,Design & UI,design,0,1,api,https://www.canva.com/magic-design/,canva.com,2013,12,0,0,0,0,0,1,0,0,0,0,0
+Tome AI,Tome,Other,productivity,0,1,api,https://tome.app,tome.app,2022,3,0,0,0,0,0,0,0,1,0,0,0
+Gamma,Gamma,Other,productivity,0,1,api,https://gamma.app,gamma.app,2023,2,0,0,0,0,0,0,0,1,0,0,0
+Beautiful.ai,Beautiful.ai,Other,productivity,0,1,api,https://www.beautiful.ai,beautiful.ai,2018,7,0,0,0,0,0,0,0,1,0,0,0
+SlidesAI.io,SlidesAI,Other,productivity,0,1,api,https://www.slidesai.io,slidesai.io,2022,3,0,0,0,0,0,0,0,1,0,0,0
+Blackbox AI,Blackbox,LLMs & Chat Assistants,code,0,1,api,https://www.useblackbox.io,useblackbox.io,2024,1,0,0,0,0,1,0,0,0,0,0,1
+Tabnine,Tabnine,LLMs & Chat Assistants,code,0,1,api,https://www.tabnine.com,tabnine.com,2018,7,0,0,0,0,1,0,0,0,0,0,1
+Codeium,Codeium (Qodo),LLMs & Chat Assistants,code,0,1,api,https://www.codeium.com,codeium.com,2022,3,0,0,0,0,1,0,0,0,0,0,1
+Replit Ghostwriter,Replit,LLMs & Chat Assistants,code,0,1,api,https://replit.com/site/ghostwriter,replit.com,2022,3,0,0,0,0,1,0,0,0,0,0,1
+OpenAI Assistants API,OpenAI,Other,code,0,1,api,https://platform.openai.com/docs/assistants/overview,platform.openai.com,2020,5,0,0,0,0,1,0,0,0,0,0,1
+Anthropic Tool Use,Anthropic,Other,code,0,1,api,https://docs.anthropic.com,docs.anthropic.com,2024,1,0,0,0,0,1,0,0,0,0,0,1
+Google Vertex AI,Google Cloud,Other,infra,0,1,api,https://cloud.google.com/vertex-ai,cloud.google.com,2021,4,0,0,0,0,0,0,1,0,0,0,0
+Azure AI Studio,Microsoft Azure,Other,infra,0,1,api,https://ai.azure.com,ai.azure.com,2023,2,0,0,0,0,0,0,1,0,0,0,0
+AWS Bedrock,Amazon Web Services,Other,infra,0,1,api,https://aws.amazon.com/bedrock/,aws.amazon.com,2023,2,0,0,0,0,0,0,1,0,0,0,0
+LangSmith,LangChain,Evaluation & Benchmarks,infra,0,1,api,https://smith.langchain.com,smith.langchain.com,2023,2,0,0,0,0,0,0,1,0,0,0,0
+TruLens,Arize AI,Evaluation & Benchmarks,infra,1,1,api,https://www.trulens.org,trulens.org,2023,2,0,0,0,0,0,0,1,0,0,0,0
+Ollama,Ollama,Other,infra,1,1,api,https://ollama.com,ollama.com,2023,2,0,0,0,0,0,0,1,0,0,0,0
+LM Studio,LM Studio,Other,infra,0,0,unavailable,https://lmstudio.ai,lmstudio.ai,2023,2,0,0,0,0,0,0,1,0,0,0,0
+WhisperX,Community,Speech-to-Text (ASR),audio,1,1,api,https://github.com/m-bain/whisperX,github.com,2022,3,0,0,0,1,0,0,0,0,0,0,1
+Silero VAD,Silero,Audio/Music/TTS,audio,1,1,api,https://github.com/snakers4/silero-vad,github.com,2020,5,0,0,0,1,0,0,0,0,0,0,1
+Papers with Code SOTA,Papers with Code,Search & RAG,infra,1,1,api,https://paperswithcode.com,paperswithcode.com,2018,7,0,0,0,0,0,0,1,0,0,0,0
+Kaggle Models,Kaggle,Other,infra,1,1,api,https://www.kaggle.com/models,kaggle.com,2023,2,0,0,0,0,0,0,1,0,0,0,0
+OpenHands,OpenHands,Video Gen & Editing,code,1,1,api,https://github.com/All-Hands-AI/OpenHands,github.com,2024,1,0,0,0,0,1,0,0,0,0,0,1
+LlamaGuard 2,Meta,Safety & Guardrails,text,1,1,api,https://ai.meta.com,ai.meta.com,2023,2,1,0,0,0,0,0,0,0,0,0,1
