@@ -1,0 +1,45 @@
+[build]
+  # Pas de build nécessaire pour un site statique simple
+  publish = "frontend"
+  command = "echo 'No build command'"
+
+[[headers]]
+  # Cache les assets statiques
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+
+[[headers]]
+  # Cache plus long pour les assets avec hash
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirections pour SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  
+  # Headers de sécurité
+  [redirects.headers]
+    X-From = "Netlify"
+
+# Configuration du domaine et HTTPS
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "preview" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "staging" }

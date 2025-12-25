@@ -1,8 +1,8 @@
 // Configuration de l'API
-// En production, utiliser l'URL relative pour passer par Nginx
+// URL du backend déployé sur Render
 const API_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:5000/api' 
-    : '/api';
+    : 'https://ai-recommender-b0ha.onrender.com/api';
 
 // État global de l'application
 let allTools = [];
